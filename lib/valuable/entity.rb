@@ -1,12 +1,20 @@
 require_relative './deep_freeze'
 
 module Valuable
+  ##
+  # Include +Entity+ to make a class an immutable value object.
   module Entity
-    def self.included(cls)
+    def self.included(cls) # :nodoc:
       cls.extend ClassMethods
     end
 
     module ClassMethods
+      ##
+      # Define an explicit list of attribute names.
+      #
+      # When you explicitly define attributes, you ensure objects can only be
+      # created with those attributes. Missing or unexpected attributes will
+      # trigger an +ArgumentError+.
       def attributes(*names)
         return @attributes unless names.any?
         @attributes = names
@@ -21,11 +29,17 @@ module Valuable
       end
     end
 
-    attr_reader :hash
+    attr_reader :hash # :nodoc:
 
-    attr_reader :attributes
+    attr_reader :attributes # :nodoc:
     protected :attributes
 
+    ##
+    # Initialize a new entity
+    #
+    # Provide the entity's attributes as key/value pairs in +kwargs+. Any
+    # attributes you provide will be duplicated and frozen, so you need not
+    # worry about later modifications to any values passed in.
     def initialize(**kwargs)
       assert_required_attributes(kwargs)
       assert_no_extra_attributes(kwargs)
@@ -34,17 +48,22 @@ module Valuable
       freeze
     end
 
+    # Comparse two objects
+    #
+    # Two entities are considered equal if they are instances of the same class
+    # and their internal attributes are equal.
     def ==(other)
       self.class == other.class &&
         attributes == other.attributes
     end
     alias_method :eql?, :==
 
+    # Get a Hash representation of this entity.
     def to_h
       @attributes
     end
 
-    def inspect
+    def inspect # :nodoc:
       "#<#{self.class} #{attributes.map { |k, v| "#{k}: #{v.inspect}" }.join(' ')}>"
     end
 
