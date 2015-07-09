@@ -1,5 +1,5 @@
-require "valuable/version"
+require 'valuable/version'
+require 'valuable/entity'
 
 module Valuable
-  # Your code goes here...
 end
