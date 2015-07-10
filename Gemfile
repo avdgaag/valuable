@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in valuable.gemspec
+# Specify your gem's dependencies in valuables.gemspec
 gemspec

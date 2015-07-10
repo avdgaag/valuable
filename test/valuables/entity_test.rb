@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class Valuable::EntityTest < Minitest::Test
+class Valuables::EntityTest < Minitest::Test
   def setup
     @entity_class = Class.new do
-      include Valuable::Entity
+      include Valuables::Entity
     end
   end
 

@@ -1,13 +1,13 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'valuable/version'
+require 'valuables/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'valuable'
-  spec.version       = Valuable::VERSION
+  spec.name          = 'valuables'
+  spec.version       = Valuables::VERSION
   spec.authors       = ['Arjan van der Gaag']
-  spec.email         = ['arjan@arjanvandergaag.nl']
+  spec.email         = ['arjan.vandergaag@gmail.com']
 
   spec.summary       = %q{Immutable value objects in Ruby}
   spec.description   = <<-EOS
@@ -20,7 +20,7 @@ on initialisation. Also, being identified by their contents, two entities with
 the same contents are considered equal.
 EOS
 
-  spec.homepage      = 'http://avdgaag.github.io/valuable'
+  spec.homepage      = 'http://avdgaag.github.io/valuables'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

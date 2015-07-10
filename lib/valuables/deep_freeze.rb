@@ -1,4 +1,4 @@
-module Valuable
+module Valuables
   ##
   # Deep freezing functionality for Ruby objects
   #

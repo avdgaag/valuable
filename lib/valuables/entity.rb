@@ -1,6 +1,6 @@
 require_relative './deep_freeze'
 
-module Valuable
+module Valuables
   ##
   # Include +Entity+ to make a class an immutable value object.
   module Entity
@@ -43,7 +43,7 @@ module Valuable
     def initialize(**kwargs)
       assert_required_attributes(kwargs)
       assert_no_extra_attributes(kwargs)
-      @attributes = Valuable::DeepFreeze.deep_freeze(kwargs)
+      @attributes = Valuables::DeepFreeze.deep_freeze(kwargs)
       @hash = self.class.hash ^ @attributes.hash
       freeze
     end

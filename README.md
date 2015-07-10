@@ -1,4 +1,4 @@
-# Valuable
+# Valuables
 
 Sometimes, your objects are only data and no behaviour. These are value objects,
 and they are defined by their _contents_. These objects are immutable, so it is
@@ -13,7 +13,7 @@ the same contents are considered equal.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'valuable'
+gem 'valuables'
 ```
 
 And then execute:
@@ -22,13 +22,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install valuable
+    $ gem install valuables
 
 ## Usage
 
 ```ruby
 class Article
-  include Valuable::Entity
+  include Valuables::Entity
   attributes :title, :author, :created_at
 
   def human_created_at
@@ -73,7 +73,7 @@ git commits and tags, and push the `.gem` file to
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/avdgaag/valuable. This project is intended to be a safe,
+https://github.com/avdgaag/valuables. This project is intended to be a safe,
 welcoming space for collaboration, and contributors are expected to adhere to
 the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
