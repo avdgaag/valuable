@@ -13,19 +13,20 @@ module Valuables
 
     # Like Ruby's +#freeze+ but recurses into contained values.
     def deep_freeze(obj)
-      if obj.respond_to?(:deep_freeze)
+      case obj
+      when ->(obj) { obj.respond_to?(:deep_freeze) }
         obj.deep_freeze
-      elsif obj.kind_of?(Hash)
+      when Hash
         obj.reduce({}) do |acc, (key, value)|
           acc.merge deep_freeze(key) => deep_freeze(value)
         end.freeze
-      elsif obj.kind_of?(Array)
+      when Array
         obj.reduce([]) do |acc, value|
           acc << deep_freeze(value)
         end.freeze
-      elsif obj.kind_of?(Range)
+      when Range
         deep_freeze(obj.begin)..deep_freeze(obj.end).freeze
-      elsif obj.kind_of?(Symbol)
+      when Symbol, Fixnum
         obj
       else
         obj.dup.freeze

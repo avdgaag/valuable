@@ -49,4 +49,8 @@ class DeepFreezeTest < Minitest::Test
     assert frozen_range.begin.frozen?
     assert frozen_range.end.frozen?
   end
+
+  def test_it_reuses_fixnums
+    assert_equal 1, Valuables::DeepFreeze.deep_freeze(1)
+  end
 end
