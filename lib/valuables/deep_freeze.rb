@@ -26,7 +26,7 @@ module Valuables
         end.freeze
       when Range
         deep_freeze(obj.begin)..deep_freeze(obj.end).freeze
-      when Symbol, Fixnum
+      when Symbol, Fixnum, NilClass
         obj
       else
         obj.dup.freeze

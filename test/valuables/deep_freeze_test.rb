@@ -53,4 +53,8 @@ class DeepFreezeTest < Minitest::Test
   def test_it_reuses_fixnums
     assert_equal 1, Valuables::DeepFreeze.deep_freeze(1)
   end
+
+  def test_it_reuses_nil
+    assert_nil Valuables::DeepFreeze.deep_freeze(nil)
+  end
 end
