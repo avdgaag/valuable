@@ -39,6 +39,10 @@ class Valuables::EntityTest < Minitest::Test
     assert_equal({ attr: 'value' }, @entity_class.new(attr: 'value').to_h)
   end
 
+  def test_its_hash_representation_is_not_frozen
+    refute @entity_class.new(attr: 'value').to_h.frozen?, 'Attributes should not be frozen'
+  end
+
   def test_prints_attributes_when_inspecting
     assert_equal "#<#{@entity_class} foo: \"bar\">", @entity_class.new(foo: 'bar').inspect
   end

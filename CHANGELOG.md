@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+* Ensure hash returned from to_h is not frozen
+
 ## 0.3.0
 
 * Do not try to duplicate nil

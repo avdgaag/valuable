@@ -60,7 +60,7 @@ module Valuables
 
     # Get a Hash representation of this entity.
     def to_h
-      @attributes
+      @attributes.dup
     end
 
     def inspect # :nodoc:
