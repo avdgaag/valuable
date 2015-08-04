@@ -38,6 +38,11 @@ class DeepFreezeTest < Minitest::Test
     assert_equal :symbol, Valuables::DeepFreeze.deep_freeze(:symbol)
   end
 
+  def test_it_reuses_booleans
+    assert_same true, Valuables::DeepFreeze.deep_freeze(true)
+    assert_same false, Valuables::DeepFreeze.deep_freeze(false)
+  end
+
   def test_it_freezes_ranges
     assert Valuables::DeepFreeze.deep_freeze('a'..'z').frozen?
   end

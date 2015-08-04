@@ -48,7 +48,7 @@ module Valuables
       freeze
     end
 
-    # Comparse two objects
+    # Compare two objects
     #
     # Two entities are considered equal if they are instances of the same class
     # and their internal attributes are equal.
